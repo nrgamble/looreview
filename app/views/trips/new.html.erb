@@ -1,0 +1,127 @@
+<h1>Trip to <%= @loo.name %></h1>
+
+<h4>Flush Fund</h4>
+<div>
+  <b>Your Salary:</b> <%= number_to_currency(@user.salary, precision: 0) %><br>
+  <span id="timer">0.0</span>s<br>
+  $<span id="fund">0</span>
+</div>
+
+<h4>Shits n Giggles</h4>
+<div></div>
+
+<button class="btn btn-danger" id="stop" data-toggle="modal" data-target="#modal-review">Swipe to wipe!</button>
+
+<%= form_for(@review) do |f| %>
+<div class="modal fade" id="modal-review" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Review this loo</h4>
+      </div>
+      <div class="modal-body">
+        <div id="stars">
+          <span class="glyphicon glyphicon-star-empty" id="star-1"></span>
+          <span class="glyphicon glyphicon-star-empty" id="star-2"></span>
+          <span class="glyphicon glyphicon-star-empty" id="star-3"></span>
+          <span class="glyphicon glyphicon-star-empty" id="star-4"></span>
+          <span class="glyphicon glyphicon-star-empty" id="star-5"></span>
+          <input type="hidden" name="review[stars]" value="0">
+        </div>
+        <div id="notes">
+          <% @notes.each do |note| %>
+            <span class="badge badge-off badge-hidden badge-<%= note.is_positive ? 'positive' : 'negative' %>" id="note-<%= note.id %>">
+              <%= note.name %>
+            </span>
+            <input type="hidden" name="notes[<%= note.id %>]" value="0">
+          <% end %>
+        </div>
+        <div>
+          <br><label>Enter your <i>Poo Haiku</i></label>
+          <textarea name="review[comments]" class="form-control" rows="3"></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="hidden" name="review[user_id]" value="<%= @user.id %>">
+        <input type="hidden" name="review[loo_id]" value="<%= @loo.id %>">
+
+        <input type="hidden" name="trip[user_id]" value="<%= @user.id %>">
+        <input type="hidden" name="trip[loo_id]" value="<%= @loo.id %>">
+        <input type="hidden" name="trip[started_at]" value="">
+        <input type="hidden" name="trip[ended_at]" value="">
+        <input type="hidden" name="trip[earnings]" value="0">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<script>
+  $(function () {
+    // Start Flush Fund
+    var salary = <%= @user.salary %>;
+    var start = new Date();
+    var now = new Date();
+
+    var interval = setInterval(function () {
+      now  = new Date();
+      var diff = (now.getTime() - start.getTime()) / 1000;
+      var fund = (salary / 52 / 10800) * diff;
+
+      $('#timer').text(diff.toFixed(1));
+      $('#fund').text(fund.toFixed(2));
+    }, 100);
+
+    $('input[name="trip[started_at]"]').val(start.toISOString());
+
+    // Stop pooping
+    $('#stop').on('click', function () {
+      clearInterval(interval);
+      $('input[name="trip[ended_at]"]').val(now.toISOString());
+      $('input[name="trip[earnings]"]').val($('#fund'));
+    });
+
+    // Star selection
+    $('#stars span')
+      .on('mouseover', function () {
+        var star = $(this).index() + 1;
+        for (i = star; i >= 0; i--) {
+          $('#star-' + i).removeClass('glyphicon-star-empty');
+          $('#star-' + i).addClass('glyphicon-star');
+        }
+        for (i = star + 1; i <= 5; i++) {
+          $('#star-' + i).removeClass('glyphicon-star');
+          $('#star-' + i).addClass('glyphicon-star-empty');
+        }
+      })
+      .on('click', function () {
+        $('.badge').addClass('badge-hidden');
+
+        var star = $(this).index() + 1;
+        if (star >= 3) {
+          $('.badge-positive').removeClass('badge-hidden');
+        } else {
+          $('.badge-negative').removeClass('badge-hidden');
+        }
+        $('input[name="review[stars]"]').val(star);
+      });
+
+    // Notes selection
+    $('#notes span')
+      .on('click', function () {
+        id = this.id.replace(/note-/, '')
+        $note = $(this);
+        $input = $('input[name="notes['+id+']"]');
+
+        if ($note.hasClass('badge-off')) { // Add note
+          $note.removeClass('badge-off');
+          $input.val(1);
+        } else { // Remove note
+          $note.addClass('badge-off');
+          $input.val(0);
+        }
+      });
+  })
+</script>

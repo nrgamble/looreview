@@ -1,0 +1,24 @@
+<h1><%= @loo.name %></h1>
+
+<div>
+  <b>Stars</b>: <%= @loo.stars %>
+</dl>
+
+<a href="<%= new_trip_path(loo_id: @loo.id) %>" class="btn btn-success">Start Pooping!</a>
+
+<div>
+  <h3>Reviews</h3>
+  <% @loo.reviews.each do |review| %>
+    <div>
+      <b><%= review.user.name %></b> poo'd on <i><%= review.created_at %></i><br>
+      <b>Stars</b>: <%= review.stars %><br>
+      <% if review.notes %>
+        <b>Notes:</b>
+        <% review.notes.each do |note| %>
+          <span class="badge"><%= note.name %></span>
+        <% end %>
+      <% end %>
+      <p><%= review.comments %></p>
+    </div>
+  <% end %>
+</div>

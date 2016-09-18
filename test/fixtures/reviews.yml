@@ -1,0 +1,53 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+one:
+  user: nick
+  loo: vu
+  stars: 1
+  comments: You have to walk too far!
+
+two:
+  user: nick
+  loo: irish
+  stars: 0
+  comments: Smells like Guiness!
+
+three:
+  user: andrew
+  loo: praca
+  stars: 3
+  comments: Looks like they just built it in open space, oh wait, they did!
+
+four:
+  user: andrew
+  loo: irish
+  stars: 1
+  comments: Just like home?
+
+five:
+  user: jessica
+  loo: doca
+  stars: 4
+  comments: Fancy shmancy!
+
+six:
+  user: jessica
+  loo: rio
+  stars: 5
+  comments: Only the best for the queen!
+
+seven:
+  user: kelli
+  loo: vu
+  stars: 2
+  comments: Not as cool as the workspace...
+
+eight:
+  user: kelli
+  loo: rio
+  stars: 5
+  comments: This dragon laid an egg.

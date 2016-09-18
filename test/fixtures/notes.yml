@@ -1,0 +1,45 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+clean:
+  name: Clean
+  is_positive: true
+
+smellsgood:
+  name: Smells good
+  is_positive: true
+
+wellstocked:
+  name: Well-stocked
+  is_positive: true
+
+nowait:
+  name: No wait
+  is_positive: true
+
+surprise:
+  name: Fun surprise
+  is_positive: true
+
+dirty:
+  name: Dirty
+  is_positive: false
+
+smelly:
+  name: Smelly
+  is_positive: false
+
+unstocked:
+  name: Out of supplies
+  is_positive: false
+
+broken:
+  name: Broken
+  is_positive: false
+
+unsurprise:
+  name: Bad surprise
+  is_positive: false

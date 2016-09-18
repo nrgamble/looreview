@@ -1,0 +1,2 @@
+class ReviewNotesController < ApplicationController
+end

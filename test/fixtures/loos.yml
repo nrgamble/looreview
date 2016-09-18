@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# This model initially had no columns defined. If you add columns to the
+# model remove the '{}' from the fixture names and add the columns immediately
+# below each fixture, per the syntax in the comments below
+#
+praca:
+  name: A Praca
+  lat: 38.703084
+  long: -9.178829
+  stars: 3
+
+rio:
+  name: Rio Maravilha
+  lat: 38.701891
+  long: -9.178052
+  stars: 5
+
+vu:
+  name: Village Underground
+  lat: 38.700765
+  long: -9.178066
+  stars: 1.5
+
+doca:
+  name: Restaurante Doca De Santo
+  lat: 38.700964
+  long: -9.176201
+  stars: 4
+
+irish:
+  name: Irish and Co.
+  lat: 38.700261
+  long: -9.176716
+  stars: 0.5
