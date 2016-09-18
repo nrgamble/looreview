@@ -1,31 +1,24 @@
-<h1>Review for <%= @review.loo.name %></h1>
+<!-- <h1>Review for <%= @review.loo.name %></h1> -->
+<h1>Thank you for your review!</h1>
+<h4><%= link_to @review.loo.name, @review.loo %></h4>
 
 <div>
-  <% (0..@review.stars).each do %>
-    <span class="glyphicon glyphicon-star"></span>
-  <% end %>
+  <%= render 'reviews/short', review: @review %>
 </div>
 
-<div>
-  <% @review.notes.each do |note| %>
-    <span class="badge"><%= note.name %></span>
-  <% end %>
-</div>
-
-<div>
-  <p><%= @review.comments %></p>
-</div>
+<% unless @review.trip.nil? %>
 <hr>
 <div>
   <p>
     You made<br>
-    <%= @review.trip.started_at %><br>
+    <%= number_to_currency(@review.trip.earnings) %><br>
     on the toilet!<br>
     You could have spent that on...<br>
     <b>or</b><br>
     <a href="<%= loos_path %>" class="btn btn-success">Give a shit!</a>
   </p>
 </div>
+<% end %>
 
 <!--<%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>-->

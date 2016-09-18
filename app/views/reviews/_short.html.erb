@@ -1,0 +1,6 @@
+<b><%= review.user.name %></b> poo'd here <i><%= review.created_at.to_s(:long) %></i><br>
+<%= render 'reviews/stars', review: review %><br>
+<% review.notes.each do |note| %>
+  <span class="badge"><%= note.name %></span>
+<% end %>
+<p><%= review.comments %></p>

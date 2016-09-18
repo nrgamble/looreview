@@ -1,16 +1,30 @@
 <h1>Trip to <%= @loo.name %></h1>
 
 <h4>Flush Fund</h4>
-<div>
-  <b>Your Salary:</b> <%= number_to_currency(@user.salary, precision: 0) %><br>
-  <span id="timer">0.0</span>s<br>
-  $<span id="fund">0</span>
+<div class="row">
+  <div class="col-xs-6 bg-info text-info">
+    <h5>Poop time</h5>
+    <span id="timer">0.0</span>s
+  </div>
+  <div class="col-xs-6 bg-success text-success">
+    <h5>Poop value</h5>
+    $<span id="fund">0</span>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <small>* Based on your <%= number_to_currency(@user.salary, precision: 0) %> annual salary</small>
+  </div>
 </div>
 
 <h4>Shits n Giggles</h4>
 <div></div>
 
-<button class="btn btn-danger" id="stop" data-toggle="modal" data-target="#modal-review">Swipe to wipe!</button>
+<div class="row">
+  <div class="col-xs-12">
+    <button class="btn btn-danger btn-block" id="stop" data-toggle="modal" data-target="#modal-review">Swipe to wipe!</button>
+  </div>
+</div>
 
 <%= form_for(@review) do |f| %>
 <div class="modal fade" id="modal-review" tabindex="-1" role="dialog">
@@ -80,7 +94,7 @@
     $('#stop').on('click', function () {
       clearInterval(interval);
       $('input[name="trip[ended_at]"]').val(now.toISOString());
-      $('input[name="trip[earnings]"]').val($('#fund'));
+      $('input[name="trip[earnings]"]').val($('#fund').text());
     });
 
     // Star selection
