@@ -1,24 +1,18 @@
-<!-- <h1>Review for <%= @review.loo.name %></h1> -->
 <h1>Thank you for your review!</h1>
-<h4><%= link_to @review.loo.name, @review.loo %></h4>
 
+<h4><%= link_to @review.loo.name, @review.loo %></h4>
 <div>
   <%= render 'reviews/short', review: @review %>
 </div>
 
 <% unless @review.trip.nil? %>
-<hr>
-<div>
-  <p>
-    You made<br>
-    <%= number_to_currency(@review.trip.earnings) %><br>
-    on the toilet!<br>
-    You could have spent that on...<br>
-    <b>or</b><br>
-    <a href="<%= loos_path %>" class="btn btn-success">Give a shit!</a>
-  </p>
+<div class="panel panel-warning" id="give-shit">
+  <div class="panel-body">
+    You made <span class="earnings"><%= number_to_currency(@review.trip.earnings) %></span> on the toilet!<br>
+    You could have spent that on:
+    <i>1,000 Loo Review buttons!</i><br>
+    <b>OR <small>(better yet)</small></b><br>
+    <a href="<%= charities_path %>" class="btn btn-success btn-block">Give a $hit!</a>
+  </div>
 </div>
 <% end %>
-
-<!--<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>-->

@@ -1,0 +1,37 @@
+<h1>Choose your charity</h1>
+
+<div class="list-group" id="charities">
+  <% @charities.each do |charity| %>
+    <button type="button" class="list-group-item"><%= charity.name %></button>
+  <% end %>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <button class="btn btn-success btn-block" disabled="disabled" data-toggle="modal" data-target="#modal-thanks">Give a $hit!</button>
+</nav>
+
+<div class="modal fade" id="modal-thanks" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        Thanks for giving a shit...<br><br>
+        <%= image_tag 'icon-large.png', width: 100 %><br><br>
+        ...while taking a shit!
+      </div>
+      <div class="modal-footer">
+        <a href="/" class="btn btn-primary">Done</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function () {
+    $('#charities button').on('click', function () {
+      $button = $(this);
+      $button.siblings().removeClass('active');
+      $button.addClass('active');
+      $('.navbar button').removeAttr('disabled');
+    });
+  });
+</script>

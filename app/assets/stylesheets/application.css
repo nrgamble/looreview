@@ -14,10 +14,95 @@
  *= require_self
  */
 
+/*Dark Blue: 3f4e7a
+Logo Blue: 7a8ec7
+Light Blue: b6c9ff
+Brown:7a6633
+Light Brown: c7b17a*/
+
 body {
   padding-top: 50px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #7a6633 !important;
+}
+.container a {
+  color: #3f4e7a !important;
+}
+.glyphicon-star, .glyphicon-star-empty {
+  color: #c7b17a;
+}
+.badge {
+  background-color: #7a6633 !important;
+}
+.btn {
+  font-weight: bold !important;
+}
+.panel-default {
+  border-color: #7a6633 !important;
+}
+.panel-default>.panel-heading {
+  color: #7a6633 !important;
+  background: #c7b17a !important;
+  border-color: #7a6633 !important;
+}
+
+/* Header */
+.navbar-default {
+  background-color: #3f4e7a !important;
+}
+.navbar-header a {
+  color: #fff !important;
+  font-family: 'Lato', sans-serif;
+}
+.navbar-header img {
+  float: left;
+  margin: 3px 0 0 10px;
+}
+.navbar-brand {
+  padding-left: 7px !important;
+}
+
+/* Footer buttons */
+.navbar-fixed-bottom {
+  min-height: auto !important;
+}
+.navbar-fixed-bottom .btn {
+  border-radius: 0;
+}
+
+/* Loo search */
+#gotta {
+  background: #c7b17a;
+  color: #7a6633;
+  padding: 16px 5px;
+  font-weight: bold;
+  font-size: 26px;
+  border-bottom: solid 1px #fff;
+}
+
+/* New trip */
+.panel-heading {
+  font-weight: bold;
+}
+#flush-fund .panel-body {
+  text-align: center;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+#flush-fund .panel-body .col-xs-6 {
+  padding: 5px;
+}
+#flush-fund .fund-num {
+  font-size: 26px;
+}
+#flush-fund .panel-footer {
+  background: #fff;
+  padding: 5px;
+}
+
+/* Review */
 #modal-review .modal-body {
   text-align: center;
 }
@@ -38,9 +123,28 @@ body {
   display: none;
 }
 #notes .badge-off {
-  color: #777;
-  background-color: #fff;
+  color: #7a6633;
+  background-color: #fff !important;
   border-style: solid;
   border-width: 2px;
-  border-color: #777;
+  border-color: #7a6633;
 }
+
+/* Give a shit */
+#give-shit {
+  text-align: center;
+}
+#give-shit .earnings {
+  font-weight: bold;
+  font-size: 20px;
+}
+#modal-thanks .modal-body {
+  text-align: center;
+  font-size: 18px;
+}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+  background-color: #b6c9ff !important;
+  border-color: #b6c9ff !important;
+}
+
+

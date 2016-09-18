@@ -5,6 +5,7 @@ class CreateLoos < ActiveRecord::Migration[5.0]
       t.float :lat
       t.float :long
       t.float :stars
+      t.string :image
 
       t.timestamps
     end

@@ -7,13 +7,13 @@
 one:
   user: nick
   loo: vu
-  stars: 1
+  stars: 2
   comments: You have to walk too far!
 
 two:
   user: nick
   loo: irish
-  stars: 0
+  stars: 1
   comments: Smells like Guiness!
 
 three:
@@ -25,7 +25,7 @@ three:
 four:
   user: andrew
   loo: irish
-  stars: 1
+  stars: 2
   comments: Just like home?
 
 five:

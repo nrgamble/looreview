@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :reviews
   resources :trips
   resources :users
+  resources :charities
 
   root 'loos#index'
 
